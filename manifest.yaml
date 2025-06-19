@@ -3,17 +3,36 @@ region: us-east-1  # Control Tower Home Region
 version: 2021-03-15
 
 resources:
-  # ControlTower Custom SCPs - Additional Preventive Guardrails
-  - name: test-preventive-guardrails
-    description: Prevent deleting or disabling resources in member accounts
-    resource_file: s3://marketplace-sa-resources-ct-us-east-1/ctlabs/preventive-guardrails.json
+  # ControlTower Custom SCPs - Region
+  - name: DenyRegions
+    description: Prevent specific regions
+    resource_file: s3://control-tower-policy1/DenyRegions/region.json
     deploy_method: scp
     # Apply to the following OU(s)
     deployment_targets:
       organizational_units:
         # New Essential OU names since ControlTower v2.7 April 16.
         # Observe the names of your existing OUs and comment out or uncomment below to match yours.
-        - Security # Formerly Core
-        - Sandbox # Formerly Custom
+        - Security
         #- Core
         #- Custom
+
+  - name: RestrictEC2InstanceTypes
+    resource_file: s3://control-tower-policy1/RestrictEC2InstanceTypes/ec2.json
+    deploy_method: scp
+    deployment_targets:
+    # Apply to the following OU(s)
+    deployment_targets:
+      organizational_units:
+       - Child Account
+      
+
+  - name: SecurityServicesProtection
+    resource_file: s3://control-tower-policy1/SecurityServicesProtection/security.json
+    deploy_method: scp
+    deployment_targets:
+    # Apply to the following OU(s)
+    deployment_targets:
+      organizational_units:
+       - Sandbox
+     
