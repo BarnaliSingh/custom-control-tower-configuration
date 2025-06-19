@@ -21,8 +21,6 @@ resources:
     resource_file: s3://control-tower-policy1/RestrictEC2InstanceTypes/ec2.json
     deploy_method: scp
     deployment_targets:
-    # Apply to the following OU(s)
-    deployment_targets:
       organizational_units:
        - Child Account
       
@@ -30,8 +28,6 @@ resources:
   - name: SecurityServicesProtection
     resource_file: s3://control-tower-policy1/SecurityServicesProtection/security.json
     deploy_method: scp
-    deployment_targets:
-    # Apply to the following OU(s)
     deployment_targets:
       organizational_units:
        - Sandbox
