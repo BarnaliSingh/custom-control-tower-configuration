@@ -2,7 +2,11 @@
 region: us-east-1  # Control Tower Home Region
 version: 2021-03-15
 
-parameters: []
+parameters:
+  - name: SCP_DEPLOYMENT
+    description: "Parameters for SCP deployment"
+    default: ""
+    type: "String"
       
 resources:
   # ControlTower Custom SCPs - Region
