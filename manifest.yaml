@@ -3,10 +3,10 @@ region: us-east-1  # Control Tower Home Region
 version: 2021-03-15
 
 parameters:
-  - name: SCP_DEPLOYMENT
-    description: "Parameters for SCP deployment"
-    default: ""
-    type: "String"
+  - name: Organization
+    description: "Organization details"
+    type: String
+    default: "None"
       
 resources:
   # ControlTower Custom SCPs - Region
@@ -17,7 +17,7 @@ resources:
     # Apply to the following OU(s)
     deployment_targets:
       organizational_units:
-       - Root
+       - Account-515966505645-OU 
 
   - name: RestrictEC2InstanceTypes
     resource_file: s3://control-tower-policy1/RestrictEC2InstanceTypes/ec2.json
