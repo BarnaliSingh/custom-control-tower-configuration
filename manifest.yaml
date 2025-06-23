@@ -12,15 +12,15 @@ resources:
     deploy_method: scp
     # Apply to the following OU(s)
     deployment_targets:
-      roots:
-        - r-bbor
+      organizational_units:
+       - Root
 
   - name: RestrictEC2InstanceTypes
     resource_file: s3://control-tower-policy1/RestrictEC2InstanceTypes/ec2.json
     deploy_method: scp
     deployment_targets:
-      accounts:
-        - "515966505645"
+      organizational_units:
+       - Security
       
 
   - name: SecurityServicesProtection
