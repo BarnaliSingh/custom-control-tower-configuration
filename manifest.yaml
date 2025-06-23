@@ -2,13 +2,7 @@
 region: us-east-1  # Control Tower Home Region
 version: 2021-03-15
 
-parameters:
-  - name: SCP_TARGETS
-    type: object
-    allowed_values:
-      - roots
-      - accounts
-      - organizational_units
+parameters: []
       
 resources:
   # ControlTower Custom SCPs - Region
