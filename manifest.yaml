@@ -1,38 +1,32 @@
-region: us-east-1  # Control Tower Home Region
+region: us-east-1
 version: 2021-03-15
 
 resources:
-  # SCP applied at OU level
   - name: ou-level-guardrails
-    description: Guardrails applied at OU level
+    description: "Guardrails applied at OU level"
     resource_file: policies/DenyRegions.json
     deploy_method: scp
     deployment_targets:
       organizational_units:
-        - Security
         - Sandbox
+        - Security
 
-  # SCP applied at Account level
   - name: account-level-guardrails
-    description: Guardrails applied at specific accounts
+    description: "Guardrails applied at specific accounts"
     resource_file: policies/RestrictEC2InstanceTypes.json
     deploy_method: scp
     deployment_targets:
       accounts:
-        - account_id: "515966505645"  # Replace with your account ID
-          name: "SCP"
-        - account_id: "149078755360"  # Replace with your account ID
+        - account_id: "149078755360"  # Replace with actual account ID
           name: "Log Archive"
 
-  # SCP applied at both OU and Account levels
   - name: mixed-level-guardrails
-    description: Guardrails applied at both OU and account levels
+    description: "Guardrails applied at both OU and account levels"
     resource_file: policies/SecurityServicesProtection.json
     deploy_method: scp
     deployment_targets:
       organizational_units:
         - Child-OU
       accounts:
-        - account_id: "538885695112"
+        - account_id: "538885695112"  # Replace with actual account ID
           name: "norrieeww"
-
