@@ -7,15 +7,13 @@ resources:
     resource_file: policies/RestrictEC2InstanceTypes.json
     deploy_method: scp
     deployment_targets:
-      policy_targets:
-        - target_id: "149078755360"
-          target_type: "ACCOUNT"
+      accounts:
+        - 149078755360
 
   - name: SecurityServicesProtection-Account
     description: "Guardrails applied at account level"
     resource_file: policies/SecurityServicesProtection.json
     deploy_method: scp
     deployment_targets:
-      policy_targets:
-        - target_id: "538885695112"
-          target_type: "ACCOUNT"
+      accounts:
+        - 538885695112
