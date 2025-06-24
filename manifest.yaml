@@ -15,24 +15,26 @@ resources:
     description: "Guardrails applied at specific accounts"
     resource_file: policies/RestrictEC2InstanceTypes.json
     deploy_method: scp
-    parameters:
-      - parameter_key: Operation
-        parameter_value: Attach
     deployment_targets:
-      target_account:  # Change from accounts to target_account
-        account_id: "149078755360"
-        operation: Attach
+      accounts:
+        - "149078755360"
+      account_names:
+        - Log Archive
+      parameters:
+        - parameter_key: Operation
+          parameter_value: Attach
 
   - name: SecurityServicesProtection
     description: "Guardrails applied at both OU and account levels"
     resource_file: policies/SecurityServicesProtection.json
     deploy_method: scp
-    parameters:
-      - parameter_key: Operation
-        parameter_value: Attach
     deployment_targets:
       organizational_units:
-        - Child OU1
-      target_account:  # Change from accounts to target_account
-        account_id: "538885695112"
-        operation: Attach
+        - Child-OU
+      accounts:
+        - "538885695112"
+      account_names:
+        - "norrieeww"
+      parameters:
+        - parameter_key: Operation
+          parameter_value: Attach
