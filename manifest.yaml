@@ -5,7 +5,7 @@ resources:
   # SCP applied at OU level
   - name: ou-level-guardrails
     description: Guardrails applied at OU level
-    resource_file: policies/ou-level-guardrails.json
+    resource_file: policies/DenyRegions.json
     deploy_method: scp
     deployment_targets:
       organizational_units:
@@ -15,7 +15,7 @@ resources:
   # SCP applied at Account level
   - name: account-level-guardrails
     description: Guardrails applied at specific accounts
-    resource_file: policies/account-level-guardrails.json
+    resource_file: policies/RestrictEC2InstanceTypes.json
     deploy_method: scp
     deployment_targets:
       accounts:
@@ -27,7 +27,7 @@ resources:
   # SCP applied at both OU and Account levels
   - name: mixed-level-guardrails
     description: Guardrails applied at both OU and account levels
-    resource_file: policies/mixed-level-guardrails.json
+    resource_file: policies/SecurityServicesProtection.json
     deploy_method: scp
     deployment_targets:
       organizational_units:
