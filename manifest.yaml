@@ -16,8 +16,8 @@ resources:
     resource_file: policies/RestrictEC2InstanceTypes.json
     deploy_method: scp
     deployment_targets:
-      target_accounts:
-        - account: "149078755360"
+      accounts:
+        - account_id: "149078755360"  # Replace with your actual account ID
           name: "Log Archive"
 
   - name: SecurityServicesProtection
@@ -27,6 +27,6 @@ resources:
     deployment_targets:
       organizational_units:
         - Child-OU
-      target_accounts:
-        - account: "538885695112"
+      accounts:
+        - account_id: "538885695112"  # Replace with your actual account ID
           name: "norrieeww"
