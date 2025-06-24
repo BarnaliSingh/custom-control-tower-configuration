@@ -6,6 +6,11 @@ resources:
     description: "Guardrails applied at account level"
     resource_file: policies/RestrictEC2InstanceTypes.json
     deploy_method: scp
+    parameters:
+      - parameter_key: "Operation"
+        parameter_value: "Attach"
+      - parameter_key: "AccountId"
+        parameter_value: "149078755360"
     deployment_targets:
       accounts:
         - 149078755360
@@ -14,6 +19,11 @@ resources:
     description: "Guardrails applied at account level"
     resource_file: policies/SecurityServicesProtection.json
     deploy_method: scp
+    parameters:
+      - parameter_key: "Operation"
+        parameter_value: "Attach"
+      - parameter_key: "AccountId"
+        parameter_value: "538885695112"
     deployment_targets:
       accounts:
         - 538885695112
