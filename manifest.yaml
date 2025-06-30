@@ -1,25 +1,30 @@
-region: us-east-1
+# Home region for CodePipeline, StepFunctions, Lambda, SSM, StackSets
+region: us-east-1  # Control Tower Home Region
 version: 2021-03-15
 
 resources:
-  - name: SecurityServicesProtection-Account
-    description: "Guardrails applied at account level"
-    resource_file: policies/SecurityServicesProtection.json
+  - name: DenyRegions
+    description: Prevent deleting or disabling resources in member accounts
+    resource_file: policies/DenyRegions.json
     deploy_method: scp
-    parameters:
-      - parameter_key: Operation
-        parameter_value: Attach
     deployment_targets:
-      account_names:
-        - "norrieeww"
+      organizational_units:
+        - Security 
 
-  - name: RestrictEC2InstanceTypes-Account
-    description: "Guardrails applied at account level"
+  - name: RestrictEC2InstanceTypes
+    description: Prevent deleting or disabling resources in member accounts
     resource_file: policies/RestrictEC2InstanceTypes.json
     deploy_method: scp
-    parameters:
-      - parameter_key: Operation
-        parameter_value: Attach
     deployment_targets:
-      account_names:
-        - "Log Archive"
+      organizational_units:
+        - Sandbox 
+      
+
+  - name: SecurityServicesProtection
+    description: Prevent deleting or disabling resources in member accounts
+    resource_file: policies/SecurityServicesProtection.json
+    deploy_method: scp
+    deployment_targets:
+      organizational_units:
+        - Child OU1
+  
