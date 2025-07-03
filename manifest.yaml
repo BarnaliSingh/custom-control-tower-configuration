@@ -11,6 +11,9 @@ resources:
       organizational_units:
         - Security 
 
+
+
+
   - name: RestrictEC2InstanceTypes
     description: Prevent deleting or disabling resources in member accounts
     resource_file: policies/RestrictEC2InstanceTypes.json
