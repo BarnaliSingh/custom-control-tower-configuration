@@ -1,0 +1,26 @@
+{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "DenyDisablingS3BlockPublicAccess",
+              "Effect": "Deny",
+              "Action": [
+                "s3:PutBucketPublicAccessBlock", "s3:PutAccountPublicAccessBlock"
+              ],
+              "Resource": "*"
+            },
+            {
+              "Sid": "RestrictS3BucketCreation",
+              "Effect": "Deny",
+              "Action": [
+                "s3:CreateBucket"
+              ],
+              "Resource": "*",
+              "Condition": {
+                "StringNotEquals": {
+                  "aws:userid": ["AROASFNOJJAQALNKVBI3X:dev1", "AROASFNOJJAQMYCVHQ7PV:admin1"]
+                }
+              }
+            }
+          ]
+        }
