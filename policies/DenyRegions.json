@@ -7,7 +7,7 @@
             "Action": "*",
             "Resource": "*",
             "Condition": {
-                "StringNotEquals": {
+                "StringEquals": {
                     "aws:RequestedRegion": [
                         "ap-south-1",
                         "ap-southeast-1"
