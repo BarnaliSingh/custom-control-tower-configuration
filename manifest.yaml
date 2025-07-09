@@ -28,7 +28,7 @@ resources:
       organizational_units:
         - Child OU1
 
-  - name: SecurityServicesProtection
+  - name: BucketRestriction
     description: Prevent deleting or disabling resources in member accounts
     resource_file: policies/BucketRestriction.json
     deploy_method: scp
